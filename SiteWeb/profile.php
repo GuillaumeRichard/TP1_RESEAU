@@ -1,6 +1,16 @@
-<?php
-include 'toolbar.php';
-?>
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Contact</title>
+    </head>
+
+    <body>
+        <?php
+        include 'toolbar.php';
+        ?>
 
 
-BOI
+        BOI
+    </body>
+</html>
