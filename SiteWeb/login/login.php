@@ -7,7 +7,7 @@
 
     <body>
         <?php
-        include 'toolbar.php';
+        include '../toolbar.php';
 
         $errormsg = "";
 
@@ -26,7 +26,7 @@
                     echo
                     $_SESSION["loggedIn"] = true;
                     $_SESSION["user"] = $_POST["user"];
-                    header("Location: index.php");
+                    header("Location: /index.php");
                 }
             }
         }
@@ -38,7 +38,7 @@
             <label for="user">Username: </label><br/>
             <input id="user" type="text" name="user" /><br/>
             <label for="password">Password: </label><br/>
-            <input id="password" type="text" name="password" /><br/>
+            <input id="password" type="password" name="password" /><br/>
             <input type="submit" value="Login" />
         </form>
 
