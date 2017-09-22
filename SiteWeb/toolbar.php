@@ -9,10 +9,10 @@ session_start();
 <?php
     if(isset($_SESSION["loggedIn"])){
         echo "<a href=\"profile.php\">Profile</a> ";
-        echo "<a href=\"logout.php\">Logout</a>";
+        echo "<a href=\"login/logout.php\">Logout</a>";
     }
     else {
-        echo "<a href=\"login.php\">Login</a>";
+        echo "<a href=\"login/login.php\">Login</a>";
     }
 ?>
 
