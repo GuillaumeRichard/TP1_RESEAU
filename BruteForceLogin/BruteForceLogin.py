@@ -67,7 +67,6 @@ class BruteForceLogin:
     def try_password(self, browser, form, password, username_to_enter):
         form[self.args_dictionary["username"]].value = username_to_enter
         form[self.args_dictionary["passname"]].value = password
-        form.serialize()
         browser.submit_form(form)
         if browser.url != self.args_dictionary["url"]:
             minutes_elapsed = self.get_minutes_elapsed()
