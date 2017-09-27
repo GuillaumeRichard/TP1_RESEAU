@@ -1,6 +1,6 @@
 <?php
 $dir = substr(dirname($_SERVER['PHP_SELF']),strlen($_SERVER['DOCUMENT_ROOT']));
-echo "<h2>Index of css:</h2>";
+echo "<h2>Index of login:</h2>";
 $g = glob("*");
 usort($g,function($a,$b) {
     if(is_dir($a) == is_dir($b))
