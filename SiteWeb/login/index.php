@@ -1,6 +1,7 @@
 <?php
 $dir = substr(dirname($_SERVER['PHP_SELF']),strlen($_SERVER['DOCUMENT_ROOT']));
-echo "<h2>Index of login:</h2>";
+echo "<h2>Index of login:</h2><br />";
+echo "<a href='../'>[To Parent Directory]</a><br />";
 $g = glob("*");
 usort($g,function($a,$b) {
     if(is_dir($a) == is_dir($b))
