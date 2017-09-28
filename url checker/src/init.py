@@ -1,6 +1,6 @@
-from robobrowser import RoboBrowser
-from src.UrlChecker import UrlChecker
+from src.Main import Main
+import sys
 
 
 if __name__ == "__main__":
-    UrlChecker()
+    Main(sys.argv)
