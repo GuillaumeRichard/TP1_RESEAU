@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from robobrowser.exceptions import InvalidSubmitError
-from script.XSS import XSS
+
+from script.LinksFinder import LinksFinder
+from script.XSSFlaw import XSSFlaw
 from robobrowser import RoboBrowser
 
 VULNERABILITY_TESTING_STRING = '"><script>alert("vulnérable");</script>"'
@@ -22,15 +24,19 @@ class XSSFinder:
         self.list_xss = []
         self.url = url
         self.browser = RoboBrowser(parser=PARSER, history=True)
+        self.browser.open(self.url)
+        self.links_finder = LinksFinder(self.browser.url)
 
     def find(self):
-        self.browser.open(self.url)
-        forms = self.browser.get_forms()
-        for form in forms:
-            fields = form.fields
-            for field in fields:
-                form[field].value = VULNERABILITY_TESTING_STRING
-                self.validate_xss_weakness(form, field)
+        links = self.links_finder.get_valid_links()
+        for link in links:
+            self.browser.open(link)
+            forms = self.browser.get_forms()
+            for form in forms:
+                fields = form.fields
+                for field in fields:
+                    form[field].value = VULNERABILITY_TESTING_STRING
+                    self.validate_xss_weakness(form, field)
 
     def validate_xss_weakness(self, form, field):
         try:
@@ -40,8 +46,9 @@ class XSSFinder:
             pass
 
     def add_threat_to_list(self, parameter, xss_type):
-        threat = XSS(self.url, parameter, xss_type)
-        self.list_xss.append(threat)
+        threat = XSSFlaw(self.browser.url, parameter, xss_type)
+        if threat not in self.list_xss:
+            self.list_xss.append(threat)
 
     def get_xss_flaws(self):
         self.find()
@@ -61,17 +68,5 @@ class XSSFinder:
                 result += TWO_NEW_LINES
             return result
 
-
-# def get_all_links(browser):
-#     links = browser.get_links()
-#
-#     for link in links:
-#         link_adress = get_url(link)
-#         browser.open(link_adress)
-#         other_links = browser.get_links()
-#         if not set(other_links).issubset(links):
-#             links.append(other_links)
-#
-#     return links
 
 

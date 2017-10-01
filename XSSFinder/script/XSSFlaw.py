@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-class XSS:
+class XSSFlaw:
     def __init__(self, url, parameter, xss_type):
         self.url = url
         self.parameter = parameter
