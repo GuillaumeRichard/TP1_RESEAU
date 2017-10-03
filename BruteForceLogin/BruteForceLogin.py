@@ -57,7 +57,7 @@ class BruteForceLogin:
         for form in forms:
             str_form = form.prettify()
             if self.args_dictionary["username"] in str_form and self.args_dictionary["passname"] in str_form:
-                str_after_name = str_form.split("name=\"", 1)[1]  # ex: <form name="uid" id="id">...
+                str_after_name = str_form.split("id=\"", 1)[1]  # ex: <form name="uid" id="id">...
                                                                  # devient
                                                                  #  uid" id="id">
 

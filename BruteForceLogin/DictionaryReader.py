@@ -1,10 +1,12 @@
 from os.path import exists
+import os
+import stat
 import sys
 from Messages import Messages
 
 
 class DictionaryReader:
-    dictionaries_root = "Dictionaries\\"
+    dictionaries_root = os.getcwd() + "\\Dictionaries\\"
     dict_name = ''
 
     def __init__(self, dict_name):
@@ -13,7 +15,7 @@ class DictionaryReader:
     def read(self):
         path = self.dictionaries_root + self.dict_name
         passwords = []
-        if exists(path):
+        if os.path.isfile(path):
             with (open(path)) as dictionary:
                 for line in dictionary:
                     password = line.rstrip("\n")  # On enlève le retour de chariot de chaque ligne

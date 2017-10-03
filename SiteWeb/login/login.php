@@ -34,7 +34,7 @@
 
         <link href="css/login.css" rel="stylesheet" type="text/css">
 
-        <form action="login.php" method="POST">
+        <form action="login.php" method="POST" id="login">
             <label for="user">Username: </label><br/>
             <input id="user" type="text" name="user" /><br/>
             <label for="password">Password: </label><br/>
