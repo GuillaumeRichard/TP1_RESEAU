@@ -51,7 +51,7 @@ class LinksFinder:
                     if browser.url not in self.url_list:
                         self.url_list.append(browser.url)
             browser.back()
-        except RoboError:
+        except :
             pass
 
     def does_page_contains_form(self, browser):
