@@ -1,8 +1,7 @@
-from os.path import exists
 import os
-import stat
 import sys
-from Messages import Messages
+
+from src.Messages import Messages
 
 
 class DictionaryReader:

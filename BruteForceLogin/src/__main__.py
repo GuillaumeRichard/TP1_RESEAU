@@ -1,5 +1,6 @@
 from optparse import OptionParser
-from BruteForceLogin import BruteForceLogin
+
+from src.BruteForceLogin import BruteForceLogin
 
 
 class Main:
