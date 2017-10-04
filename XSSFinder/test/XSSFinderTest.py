@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# import pytest
 import unittest
-
 from robobrowser.exceptions import InvalidSubmitError
 from script.XSSFlaw import XSSFlaw
 from script.XSSFinder import XSSFinder
@@ -38,8 +36,9 @@ class XSSFinderTest(unittest.TestCase):
     def test_add_threat_to_list__threat_is_added_to_list(self):
         xss_parameter = "Search"
         xss_method = "GET"
-        expected_xss_flaw = XSSFlaw(ANY_NOT_SECURED_URL, xss_parameter, xss_method)
         xss_finder = XSSFinder(ANY_NOT_SECURED_URL)
+        browser_url = xss_finder.browser.url
+        expected_xss_flaw = XSSFlaw(browser_url, xss_parameter, xss_method)
 
         xss_finder.add_threat_to_list(xss_parameter, xss_method)
 

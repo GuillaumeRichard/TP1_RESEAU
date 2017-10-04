@@ -22,9 +22,9 @@ class XSSFinder:
 
     def __init__(self, url):
         self.list_xss = []
-        self.url = url
+        # self.url = url
         self.browser = RoboBrowser(parser=PARSER, history=True)
-        self.browser.open(self.url)
+        self.browser.open(url)
         self.links_finder = LinksFinder(self.browser.url)
 
     def find(self):
