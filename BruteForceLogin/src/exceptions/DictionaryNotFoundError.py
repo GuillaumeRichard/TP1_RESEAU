@@ -1,0 +1,2 @@
+class DictionaryNotFoundError(Exception):
+    pass
