@@ -1,0 +1,9 @@
+status: 200
+host: localhost:8080
+date: Tue, 03 Oct 2017 17:15:17 +0000
+connection: close
+x-powered-by: PHP/7.1.9
+content-type: text/html; charset=UTF-8
+content-location: http://localhost:8080/login/
+
+<h2>Index of login:</h2><a href="index.php">index.php</a><br><a href="login.php">login.php</a><br><a href="logout.php">logout.php</a>
